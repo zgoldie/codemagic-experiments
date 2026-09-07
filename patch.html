@@ -233,8 +233,8 @@
       --slide-rule: rgba(255, 255, 255, 0.18);
     }
     .close { --slide-bg: var(--cta-blue); --rail-bg: #0746D6; --rail-num-bg: #0536B8; min-height: min(56vh, 480px); }
-    .what { --slide-bg: #182238; }
-    .pg:not(.dark) .what { --slide-bg: #F2F5FA; --rail-bg: #11285B; --rail-num-bg: #0B1C44; }
+    .act { --slide-bg: #182238; }
+    .pg:not(.dark) .act { --slide-bg: #F2F5FA; --rail-bg: #11285B; --rail-num-bg: #0B1C44; }
 
     .ghost {
       font: var(--type-title);
@@ -244,7 +244,7 @@
       margin-bottom: 8px;
     }
     .mark { height: 22px; width: auto; margin-bottom: 28px; }
-    .cover h1 { font: var(--type-title); max-width: 14ch; }
+    .cover h1 { font: var(--type-title); max-width: 12ch; }
     .lede {
       font: var(--type-paragraph-lg);
       color: var(--slide-body);
@@ -281,7 +281,7 @@
     .btn-primary:hover { background: #FFFFFF; color: var(--nobugblue); }
     .btn-primary:hover { background: #E8EEFC; color: var(--nobugblue); }
     .pg:not(.dark) .why .btn-primary,
-    .pg:not(.dark) .what .btn-primary,
+    .pg:not(.dark) .act .btn-primary,
     .pg:not(.dark) .how .btn-primary {
       background: var(--cta-blue);
       color: #FFFFFF;
@@ -322,43 +322,6 @@
       color: var(--slide-body);
     }
 
-    .cmp {
-      width: 100%;
-      border-collapse: collapse;
-      font: var(--type-paragraph-sm);
-      margin-top: 20px;
-    }
-    .cmp th, .cmp td {
-      text-align: left;
-      padding: 11px 12px 11px 0;
-      vertical-align: top;
-      border-bottom: 1px solid var(--slide-rule);
-    }
-    .cmp th { font: var(--type-action-sm); color: var(--slide-muted); padding-top: 0; }
-    .cmp td:first-child, .cmp th:first-child { color: var(--slide-muted); width: 22%; }
-    .table-wrap { overflow-x: auto; }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 28px;
-      align-items: start;
-    }
-    .code {
-      margin: 0;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      line-height: 1.55;
-      color: var(--code-text);
-      background: var(--code-bg);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card);
-      padding: 18px 20px;
-      overflow-x: auto;
-    }
-    .code .cmt { color: #8494AE; }
-    .code .kw { color: #0957FF; }
     .mono { font-family: var(--font-mono); font-size: 0.92em; }
 
     .colophon {
@@ -390,7 +353,6 @@
         padding: 0;
       }
       .rail-num { width: 44px; height: 44px; flex: none; margin-left: auto; }
-      .split { grid-template-columns: 1fr; }
       .rows { grid-template-columns: 1fr; }
       .row p { grid-column: auto; }
       .actions { flex-direction: column; align-items: stretch; }
@@ -439,7 +401,7 @@
         </div>
 
         <div class="deck">
-          <article class="slide cover">
+          <article class="slide cover" id="cover">
             <div class="rail">
               <span class="rail-label">Cover</span>
               <span class="rail-num">01</span>
@@ -448,11 +410,63 @@
               <img class="mark" src="assets/logo-white.svg" alt="Codemagic" />
               <div class="ghost" aria-hidden="true">01</div>
               <p class="note">A note for existing CodePush customers</p>
-              <h1>From CodePush to Patch, still run by us</h1>
-              <p class="lede">We host Patch for you. It is a dedicated OTA product, not a new screen inside the Codemagic CI/CD UI. Same job. Better dashboard, fingerprinting, and CLI.</p>
-              <div class="actions">
-                <a class="btn btn-primary" href="https://codemagic.io/contact">Talk to sales</a>
-                <a class="textlink" href="https://patch.codemagic.io/docs/introduction/comparison">Full comparison</a>
+              <h1>From CodePush to Patch</h1>
+              <p class="lede">We still host OTA for you. Patch is the dedicated product we built next.</p>
+            </div>
+          </article>
+
+          <article class="slide happening has-grid" id="happening">
+            <div class="rail">
+              <span class="rail-label">Happening</span>
+              <span class="rail-num">02</span>
+            </div>
+            <div class="body-pad">
+              <h2 style="font:var(--type-h1)">What's happening</h2>
+              <p class="lede">CodePush is moving to Patch. Dedicated product, own dashboard and CLI, not a new screen in the CI/CD UI.</p>
+              <div class="rows">
+                <div class="row">
+                  <div class="row-k">Hosted</div>
+                  <h3>Same operator, new service</h3>
+                  <p>Codemagic runs Patch. You get a dashboard login, not a box to operate. CodePush stays up until old binaries are gone.</p>
+                </div>
+                <div class="row">
+                  <div class="row-k">Client</div>
+                  <h3>New SDK and protocol</h3>
+                  <p>The CodePush client cannot take Patch updates. <span class="mono">@codemagic/react-native-patch</span> has to ship in a native binary.</p>
+                </div>
+                <div class="row">
+                  <div class="row-k">Model</div>
+                  <h3>The release shape stays</h3>
+                  <p>Apps per platform. Staging and Production. <span class="mono">sync()</span> install modes. <span class="mono">release-react</span>, mandatory, rollout, target binary version.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="slide act" id="action">
+            <div class="rail">
+              <span class="rail-label">Action</span>
+              <span class="rail-num">03</span>
+            </div>
+            <div class="body-pad">
+              <h2 style="font:var(--type-h1)">What you need to do, and when</h2>
+              <p class="lede">Nothing switches off on its own. The required action is one native release that includes the Patch client. OTA cannot deliver that change.</p>
+              <div class="rows">
+                <div class="row">
+                  <div class="row-k">Now</div>
+                  <h3>Keep shipping on CodePush</h3>
+                  <p>We provision Patch, mirror apps and deployments, and hand you dashboard access plus <span class="mono">cm_pat_</span> tokens. Existing binaries keep updating as they do today.</p>
+                </div>
+                <div class="row">
+                  <div class="row-k">You</div>
+                  <h3>Ship a native build with Patch</h3>
+                  <p>Replace the SDK, point CI at <span class="mono">cmpatch release-react</span>, and ship that binary through the store or your internal channel. That binary is the cutover.</p>
+                </div>
+                <div class="row">
+                  <div class="row-k">After</div>
+                  <h3>Drain old binaries</h3>
+                  <p>Publish OTA to the new binary. Leave CodePush running until the old client is gone from the fleet.</p>
+                </div>
               </div>
             </div>
           </article>
@@ -460,11 +474,11 @@
           <article class="slide why has-grid" id="why">
             <div class="rail">
               <span class="rail-label">Why</span>
-              <span class="rail-num">02</span>
+              <span class="rail-num">04</span>
             </div>
             <div class="body-pad">
-              <h2 style="font:var(--type-h1)">Why switch</h2>
-              <p class="lede">You already ship OTA with us. Patch is the product we built next: a dedicated dashboard, native fingerprinting, and a CLI that matches how teams actually release.</p>
+              <h2 style="font:var(--type-h1)">Why this is better</h2>
+              <p class="lede">You already ship OTA with us. Patch is the product around that job: a dashboard you can run releases from, fingerprinting that ties JS to a binary, and a CLI your CI can reuse.</p>
               <div class="rows">
                 <div class="row">
                   <div class="row-k">Dashboard</div>
@@ -485,96 +499,24 @@
             </div>
           </article>
 
-          <article class="slide what" id="what">
+          <article class="slide how act" id="guide">
             <div class="rail">
-              <span class="rail-label">What</span>
-              <span class="rail-num">03</span>
+              <span class="rail-label">Guide</span>
+              <span class="rail-num">05</span>
             </div>
             <div class="body-pad">
-              <h2 style="font:var(--type-h1)">What Patch is</h2>
-              <p class="lede">A hosted OTA product we operate for you. Separate login and UI from CI/CD. Familiar CodePush mental model. New SDK and CLI.</p>
-              <div class="table-wrap">
-                <table class="cmp">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Codemagic CodePush</th>
-                      <th>Codemagic Patch</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Who runs it</td>
-                      <td>Hosted by Codemagic</td>
-                      <td>Hosted by Codemagic, as its own service</td>
-                    </tr>
-                    <tr>
-                      <td>Where you work</td>
-                      <td>CodePush in the Codemagic product UI</td>
-                      <td>Patch dashboard, not the CI/CD app</td>
-                    </tr>
-                    <tr>
-                      <td>Dashboard</td>
-                      <td>Rollout metrics on the CodePush UI</td>
-                      <td>Releases, metrics, and team IAM in one place</td>
-                    </tr>
-                    <tr>
-                      <td>Fingerprinting</td>
-                      <td>Binary version targeting</td>
-                      <td>Native project hash plus binary version</td>
-                    </tr>
-                    <tr>
-                      <td>CLI</td>
-                      <td>CodePush <span class="mono">release-react</span></td>
-                      <td><span class="mono">cmpatch release-react</span>, OAuth-backed tokens</td>
-                    </tr>
-                    <tr>
-                      <td>Team access</td>
-                      <td>Access keys / org settings</td>
-                      <td>RBAC in the Patch dashboard</td>
-                    </tr>
-                    <tr>
-                      <td>Protocol</td>
-                      <td>CodePush-compatible</td>
-                      <td>Patch SDK and wire protocol</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="split">
-                <div>
-                  <h3 style="font:var(--type-h4)">What already maps</h3>
-                  <p class="lede" style="margin-top:10px">Apps per platform. Staging and Production. <span class="mono">sync()</span> install modes. <span class="mono">release-react</span>, mandatory, rollout, target binary version.</p>
-                </div>
-                <pre class="code" tabindex="0"><span class="cmt">// before</span>
-import codePush from "@code-push-next/react-native-code-push";
-codePush.sync({ installMode: codePush.InstallMode.ON_NEXT_RESTART });
-
-<span class="cmt">// after</span>
-import { sync } from "@codemagic/react-native-patch";
-void sync({ installMode: <span class="kw">"ON_NEXT_RESTART"</span> });</pre>
-              </div>
-            </div>
-          </article>
-
-          <article class="slide how has-grid" id="how">
-            <div class="rail">
-              <span class="rail-label">How</span>
-              <span class="rail-num">04</span>
-            </div>
-            <div class="body-pad">
-              <h2 style="font:var(--type-h1)">How you move</h2>
-              <p class="lede">We stand up the hosted Patch server. You swap the client in a native release. Not an over-the-air SDK change.</p>
+              <h2 style="font:var(--type-h1)">Step by step</h2>
+              <p class="lede">We stand up the hosted Patch server. You swap the client in a native release, then point CI at the new CLI.</p>
               <div class="rows">
                 <div class="row">
                   <div class="row-k">01</div>
                   <h3>We provision Patch</h3>
-                  <p>Same vendor, new service. Apps and deployments can mirror your CodePush layout. You get dashboard login and CLI tokens, not a box to operate.</p>
+                  <p>Same vendor, new service. Apps and deployments can mirror your CodePush layout. You get dashboard login and CLI tokens.</p>
                 </div>
                 <div class="row">
                   <div class="row-k">02</div>
                   <h3>Replace the SDK</h3>
-                  <p>Drop the CodePush client. Add <span class="mono">@codemagic/react-native-patch</span>. Call <span class="mono">sync()</span> from app entry. The Patch client has to ship in a store or internal binary.</p>
+                  <p>Drop the CodePush client. Add <span class="mono">@codemagic/react-native-patch</span>. Call <span class="mono">sync()</span> from app entry. This has to ship in a store or internal binary.</p>
                 </div>
                 <div class="row">
                   <div class="row-k">03</div>
@@ -593,12 +535,12 @@ void sync({ installMode: <span class="kw">"ON_NEXT_RESTART"</span> });</pre>
           <article class="slide close">
             <div class="rail">
               <span class="rail-label">Next</span>
-              <span class="rail-num">05</span>
+              <span class="rail-num">06</span>
             </div>
             <div class="body-pad">
-              <div class="ghost" aria-hidden="true">05</div>
+              <div class="ghost" aria-hidden="true">06</div>
               <h2 style="font:var(--type-title)">Walk through it with us</h2>
-              <p class="lede">If you already run CodePush with us, this is a planned cutover. We keep operating the server. Your team gets the Patch dashboard and CLI.</p>
+              <p class="lede">If you already run CodePush with us, this is a planned cutover. We keep operating the server. Your team ships one native release.</p>
               <div class="actions">
                 <a class="btn btn-primary" href="https://codemagic.io/contact">Talk to sales</a>
                 <a class="textlink" href="https://patch.codemagic.io/docs/migration/migrating-from-codepush">Migration guide</a>
