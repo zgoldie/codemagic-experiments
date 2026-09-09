@@ -19,7 +19,7 @@ SLIDE_META = {
     "what's happening": ("Happening", "happening"),
     "why we're doing it": ("Why", "why act"),
     "watch the demo": ("Demo", "demo"),
-    "what's needed to switch": ("Switch", "switch"),
+    "what's needed to switch": ("Switch", "switch light"),
     "when it is happening": ("When", "when act"),
     "when and how much": ("When", "when act"),
     "next steps": ("Next", "close"),
@@ -172,7 +172,7 @@ def render_cover(slide: dict, num: str) -> str:
             </div>
             <div class="body-pad">
               <img class="mark" src="assets/logo-white.svg" alt="Codemagic" />
-              <p class="note">{inline(note)}</p>
+              {f'              <p class="note">{inline(note)}</p>' if note else ""}
               <h1>{inline(heading)}</h1>
               <p class="lede">{inline(lede_html)}</p>
             </div>

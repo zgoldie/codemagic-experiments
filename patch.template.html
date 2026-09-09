@@ -159,6 +159,7 @@
       padding: clamp(28px, 4.5vw, 52px) clamp(24px, 4vw, 48px) clamp(32px, 5vw, 56px);
       display: flex;
       flex-direction: column;
+      min-height: 100%;
     }
 
     .cover,
@@ -174,9 +175,33 @@
     .close { --slide-bg: var(--cta-blue); --rail-bg: #0746D6; --rail-num-bg: #0536B8; }
     .act { --slide-bg: #182238; }
     .pg:not(.dark) .act { --slide-bg: #F2F5FA; --rail-bg: #11285B; --rail-num-bg: #0B1C44; }
+    .light {
+      --slide-bg: #BFD2FF;
+      --slide-text: #11285B;
+      --slide-body: #3A4865;
+      --slide-muted: #5C6B86;
+      --slide-rule: rgba(17, 40, 91, 0.14);
+      --rail-bg: #11285B;
+      --rail-num-bg: #0B1C44;
+    }
 
     .mark { height: 22px; width: auto; margin-bottom: 28px; }
-    .cover h1 { font: var(--type-title); max-width: 12ch; }
+    .cover .body-pad {
+      position: relative;
+      justify-content: center;
+      padding-block: clamp(28px, 4.5vw, 52px);
+    }
+    .cover .mark {
+      position: absolute;
+      top: clamp(28px, 4.5vw, 52px);
+      left: clamp(24px, 4vw, 48px);
+      margin-bottom: 0;
+    }
+    .cover .note:empty { display: none; }
+    .cover h1 {
+      font: var(--type-title);
+      max-width: 12ch;
+    }
     .body-pad > h2 { font: var(--type-h1); }
     .close h2 { font: var(--type-title); }
     .lede {
@@ -242,6 +267,22 @@
       column-gap: 36px;
     }
     .row:first-child { border-top: 0; padding-top: 0; }
+    .why .body-pad,
+    .switch .body-pad {
+      padding-block: clamp(40px, 6vw, 72px);
+    }
+    .why .rows,
+    .switch .rows {
+      flex: 1;
+      margin-top: clamp(32px, 5vh, 56px);
+      align-content: space-evenly;
+    }
+    .why .row,
+    .switch .row {
+      padding-block: clamp(24px, 3.5vh, 40px);
+    }
+    .why .row:first-child,
+    .switch .row:first-child { padding-top: clamp(24px, 3.5vh, 40px); }
     .row h3 { font: var(--type-h2); max-width: 18ch; }
     .row p {
       font: var(--type-paragraph-md);
@@ -374,7 +415,7 @@
       .slide {
         width: 1040px;
         min-height: 576px;
-        height: auto;
+        height: 576px;
         max-height: none;
         break-after: page;
         break-inside: avoid;

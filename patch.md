@@ -25,7 +25,7 @@ CodePush was missing a good dashboard, native fingerprinting and binary diffs. I
 
 To see Patch in action and how it improves on CodePush, check out this demo
 
-[embed: https://www.youtube.com/@codemagicio/videos]
+[embed: https://youtu.be/P7628reV_2Y?si=A44py2Nv-fmnItQX]
 
 ---
 
@@ -35,7 +35,7 @@ We are trying to make it minimally painful to make the switch.
 
 ## Similar SDK and CLI
 
-The SDK and CLI need replacing, but both have a similar shape to CodePush, such as equivalent `sync()` options and `release-react` commands.
+The SDK and CLI need replacing are similar to CodePush, such as the `sync()` options and `release-react` commands.
 
 ## We copy your setup
 
