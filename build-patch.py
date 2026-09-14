@@ -18,6 +18,7 @@ SLIDE_META = {
     "cover": ("Cover", "cover"),
     "what's happening": ("Happening", "happening"),
     "why we're doing it": ("Why", "why act"),
+    "new features": ("Features", "features light"),
     "watch the demo": ("Demo", "demo"),
     "what's needed to switch": ("Switch", "switch light"),
     "when it is happening": ("When", "when act"),

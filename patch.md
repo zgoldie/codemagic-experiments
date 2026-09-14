@@ -15,9 +15,26 @@ After hosting a CodePush fork for two years, we figured it was time for an overh
 
 Microsoft created CodePush ten years ago. It has been great for the community, but the architecture decisions meant it is painful to host for large volumes of users.
 
-## Missing features
+## Stuck on the old stack
 
-CodePush was missing a good dashboard, native fingerprinting and binary diffs. It was cleaner to add these into a new product than wedge them into CodePush.
+CodePush was missing features other OTA tools already treat as normal, and the old architecture made those painful to add without piling more onto a fork.
+---
+
+# New Features
+
+Three upgrades that make over-the-air updates safer and easier to run.
+
+## Fingerprinting
+
+Prevents accidentally releasing an incompatible update that would crash the app.
+
+## Binary diffs
+
+Creates extra-small updates so they download easily, regardless of network strength.
+
+## Dashboard
+
+A fully featured dashboard with release metrics, timelines and controls.
 
 ---
 
